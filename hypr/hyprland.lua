@@ -50,9 +50,8 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("XDG_CURRENT_DESKTOP=sway /usr/lib/xdg-desktop-portal-wlr &")
   hl.exec_cmd("XDG_CURRENT_DESKTOP=sway /usr/lib/xdg-desktop-portal -r &")
   hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &")
-  -- Auto-update window border on theme change
-  hl.exec_cmd("bash /home/sob/hyprland-minions/hypr/assets/update-border.sh")
-  hl.exec_cmd("bash /home/sob/hyprland-minions/hypr/assets/theme-watch.sh &")
+  -- Set correct border on startup (before imgborders loads)
+  hl.exec_cmd("bash /home/sob/hyprland-minions/hypr/assets/update-border.sh bubblegum")
   -- Reload after border is set
   hl.exec_cmd("hyprctl reload")
 
@@ -368,7 +367,7 @@ hl.config({
     plugin = {
         hyprbars = {
             bar_height = 40,
-            bar_color = "rgb(d27b99)",
+            bar_color = "rgb(6ba3d6)",
             bar_text_font = "Comic Mono",
             bar_text_size = 14,
             bar_padding = 0,
