@@ -1,6 +1,6 @@
 #!/bin/bash
-# Update window border image based on current quickshell theme
-THEME=$(cat ~/.config/quickshell/state/theme.json 2>/dev/null | grep -o '"theme":"[^"]*"' | cut -d'"' -f4)
+# Update window border image based on theme ID passed from quickshell
+THEME="${1:-bubblegum}"
 ASSETS_DIR="/home/sob/hyprland-minions/hypr/assets"
 
 case "$THEME" in

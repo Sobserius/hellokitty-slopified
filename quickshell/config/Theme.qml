@@ -38,14 +38,19 @@ Singleton {
     // [{ id, name }] for every file in config/themes, sorted by name.
     property var themes: []
 
-    Process {
-        id: borderUpdater
-        command: ["bash", "/home/sob/hyprland-minions/hypr/assets/update-border.sh"]
-    }
-
     function setTheme(id: string) {
         saved.theme = id
-        borderUpdater.running = true
+        borderUpdateTimer.themeId = id
+        borderUpdateTimer.start()
+    }
+
+    Timer {
+        id: borderUpdateTimer
+        property string themeId: ""
+        interval: 100
+        onTriggered: {
+            var proc = Qt.createQmlObject('import Quickshell.Io; Process { command: ["bash", "/home/sob/hyprland-minions/hypr/assets/update-border.sh", "' + themeId + '"]; running: true }', root)
+        }
     }
 
     function setDark(value: bool) {
