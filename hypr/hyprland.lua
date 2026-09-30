@@ -53,6 +53,8 @@ hl.on("hyprland.start", function ()
   -- Auto-update window border on theme change
   hl.exec_cmd("bash /home/sob/hyprland-minions/hypr/assets/update-border.sh")
   hl.exec_cmd("bash /home/sob/hyprland-minions/hypr/assets/theme-watch.sh &")
+  -- Reload after border is set
+  hl.exec_cmd("hyprctl reload")
 
 end)
 
