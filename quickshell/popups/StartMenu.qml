@@ -175,12 +175,12 @@ BarPopup {
 
                 SessionButton {
                     label: "Restart"
-                    command: ["loginctl", "reboot"]
+                    command: ["systemctl", "reboot"]
                 }
 
                 SessionButton {
                     label: "Shut Down"
-                    command: ["loginctl", "poweroff"]
+                    command: ["systemctl", "poweroff"]
                 }
             }
         }
