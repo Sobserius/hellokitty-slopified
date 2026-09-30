@@ -50,6 +50,8 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("XDG_CURRENT_DESKTOP=sway /usr/lib/xdg-desktop-portal-wlr &")
   hl.exec_cmd("XDG_CURRENT_DESKTOP=sway /usr/lib/xdg-desktop-portal -r &")
   hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &")
+  -- Auto-update window border on theme change
+  hl.exec_cmd("bash /home/sob/hyprland-minions/hypr/assets/theme-watch.sh &")
 
 end)
 
