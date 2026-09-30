@@ -16,7 +16,7 @@ Singleton {
 
     // ---- Settings ------------------------------------------------------
 
-    readonly property string defaultTheme: "grape"
+    readonly property string defaultTheme: ""
     readonly property bool defaultDark: false
 
     readonly property int fontSize: 12
