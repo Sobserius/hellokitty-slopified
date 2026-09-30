@@ -1,11 +1,11 @@
 #!/bin/bash
-# Auto-update window border when quickshell theme changes
-LAST_THEME=""
-while true; do
-    THEME=$(cat ~/.config/quickshell/state/theme.json 2>/dev/null | grep -o '"theme":"[^"]*"' | cut -d'"' -f4)
-    if [ "$THEME" != "$LAST_THEME" ] && [ -n "$THEME" ]; then
-        bash /home/sob/hyprland-minions/hypr/assets/update-border.sh
-        LAST_THEME="$THEME"
-    fi
-    sleep 1
+# Auto-update window border when quickshell theme changes (inotifywait version)
+THEME_FILE="$HOME/.config/quickshell/state/theme.json"
+
+# Run once on start
+bash /home/sob/hyprland-minions/hypr/assets/update-border.sh
+
+# Watch for changes
+inotifywait -m -e modify,create,move "$THEME_FILE" 2>/dev/null | while read -r; do
+    bash /home/sob/hyprland-minions/hypr/assets/update-border.sh
 done
