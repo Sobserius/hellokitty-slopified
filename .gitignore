@@ -1,0 +1,18 @@
+# Old minion assets
+hypr/assets/border_minion.png
+hypr/assets/minion_bob.png
+hypr/assets/minion_eyes.png
+
+# Foot configs (not needed for this setup)
+foot/
+
+# Old Gentoo logo
+quickshell/assets/Gentoo_Logo_Vector.svg
+
+# Krita/backup files
+*.kra
+*~
+*.kra~
+*.png~
+*.lzp
+*.pdn

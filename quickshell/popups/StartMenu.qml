@@ -170,7 +170,7 @@ BarPopup {
                 SessionButton {
                     label: "Suspend"
                     confirm: false
-                    command: ["loginctl", "suspend"]
+                    command: ["systemctl", "suspend"]
                 }
 
                 SessionButton {
