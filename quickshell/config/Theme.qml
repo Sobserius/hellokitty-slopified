@@ -16,7 +16,7 @@ Singleton {
 
     // ---- Settings ------------------------------------------------------
 
-    readonly property string defaultTheme: "grape"
+    readonly property string defaultTheme: "bubblegum"
     readonly property bool defaultDark: false
 
     readonly property int fontSize: 12
@@ -26,9 +26,9 @@ Singleton {
     readonly property int radius: 9
     readonly property int radiusLarge: 16
 
-    readonly property string startIcon: Quickshell.shellPath("assets/Gentoo_Logo_Vector.svg")
-    readonly property string startLabel: "Gentoo"
-    readonly property string terminal: "foot"
+    readonly property string startIcon: ""
+    readonly property string startLabel: "Start Menu"
+    readonly property string terminal: "kitty"
 
     // ---- Current theme -------------------------------------------------
 
@@ -85,32 +85,32 @@ Singleton {
     // Themes may name a font; if it isn't installed, Inter is used.
     readonly property string font: {
         const wanted = themeFile.parsed?.font ?? ""
-        return wanted !== "" && Qt.fontFamilies().includes(wanted) ? wanted : "Inter"
+        return wanted !== "" && Qt.fontFamilies().includes(wanted) ? wanted : "Comic Sans MS"
     }
 
     readonly property var fallback: ({
         bevelHighlight: "#ffffff",
         bevelLight: "#ffffff",
-        bevelDark: "#6152b3",
-        bevelShadow: "#2a1f5c",
-        bar: "#a597ea",
-        face: "#b3a7f0",
-        faceHover: "#c0b5f5",
-        facePressed: "#9c8de0",
-        activeFace: "#7c68d8",
-        activeFaceHover: "#8a77e0",
+        bevelDark: "#d1478c",
+        bevelShadow: "#5c1a3a",
+        bar: "#ffb3d9",
+        face: "#ffc4e0",
+        faceHover: "#ffd1e8",
+        facePressed: "#ff9ecd",
+        activeFace: "#ff69b4",
+        activeFaceHover: "#ff7dc0",
         activeText: "#ffffff",
-        window: "#fbfaff",
-        windowBorder: "#9c8de6",
+        window: "#fff5fa",
+        windowBorder: "#ff8fc7",
         field: "#ffffff",
-        text: "#261d4d",
-        textDim: "#4a3f7a",
-        textMuted: "#8a80b5",
-        selection: "#8b78e6",
+        text: "#4a1530",
+        textDim: "#7a3558",
+        textMuted: "#b98aa2",
+        selection: "#ff69b4",
         selectionText: "#ffffff",
-        titleInactive: "#c9c0f2",
-        titleInactiveText: "#261d4d",
-        warning: "#e0506e"
+        titleInactive: "#ffd6ea",
+        titleInactiveText: "#4a1530",
+        warning: "#d9304a"
     })
 
     readonly property var palette: themeFile.parsed?.[dark ? "dark" : "light"] ?? {}

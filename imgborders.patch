@@ -6,7 +6,7 @@
  
 +  // Top center image
 +
-+  static const auto TEX_TOP_CENTER = ImgUtils::load(std::string(getenv("HOME")) + "/.config/hypr/assets/minion_eyes.png");
++  static const auto TEX_TOP_CENTER = ImgUtils::load(std::string(getenv("HOME")) + "/.config/hypr/assets/hellokitty_face.png");
 +  const CBox box_tc = {
 +      {box.x + (box.width - TEX_TOP_CENTER->m_size.x * scale) / 2.,
 +       box.y + (BORDER_TOP - TEX_TOP_CENTER->m_size.y * scale) / 2.},

@@ -1,10 +1,10 @@
-local primary = "rgb(3c3836)"
-local surface = "rgb(fbf1c7)"
-local on_surface = "rgb(3c3836)"
-local secondary = "rgb(689d6a)"
-local on_secondary = "rgb(fbf1c7)"
-local error = "rgb(cc241d)"
-local on_error = "rgb(fbf1c7)"
+local primary = "rgb(ff69b4)"
+local surface = "rgb(fff5fa)"
+local on_surface = "rgb(4a1530)"
+local secondary = "rgb(ff8fc7)"
+local on_secondary = "rgb(4a1530)"
+local error = "rgb(d9304a)"
+local on_error = "rgb(ffffff)"
 
 local function apply_theme()
     hl.config({
