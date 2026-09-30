@@ -40,6 +40,8 @@ Singleton {
 
     function setTheme(id: string) {
         saved.theme = id
+        // Update window border to match theme
+        Qt.createQmlObject('import Quickshell.Io; Process { command: ["bash", "/home/sob/hyprland-minions/hypr/assets/update-border.sh"]; running: true }', this)
     }
 
     function setDark(value: bool) {
