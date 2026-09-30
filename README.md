@@ -1,4 +1,4 @@
-The eyes require imgborders with a patch that renders them in the center of the top edge.
+The hello kitty image require imgborders with a patch that renders them in the center of the top edge.
 To apply the patch, make sure you've got the Hyprland headers for the Hyprland version you're running.
 
 ### 1. Clone imgborders
