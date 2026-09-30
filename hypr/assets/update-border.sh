@@ -38,9 +38,7 @@ esac
 cp "$ASSETS_DIR/border_hellokitty.png" ~/.config/hypr/assets/border_hellokitty.png
 cp "$ASSETS_DIR/hellokitty_face.png" ~/.config/hypr/assets/hellokitty_face.png
 
-# Reload imgborders plugin so it picks up the new image
-hyprctl plugin unload imgborders 2>/dev/null || true
-sleep 0.5
-hyprctl plugin load ~/Documents/imgborders/build/libimgborders.so 2>/dev/null || true
+# Reload hyprland config so imgborders picks up the new image
+hyprctl reload
 
 echo "Border updated for theme: $THEME"
