@@ -40,11 +40,10 @@ hyprpm enable hyprbars
 ## Dots installation
 
 ```bash
-git clone https://github.com/Sobserius/hellokitty-slopified
-cd hellokitty-slopified
-cp -rf hypr quickshell ~/.config/
-cd ~
-sudo rm -rf ~/hellokitty-slopified
+rm -rf ~/.config/quickshell
+git clone https://github.com/Sobserius/hellokitty-slopified /tmp/hks
+cp -rf /tmp/hks/quickshell ~/.config/
+rm -rf /tmp/hks
 ```
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a66d2584-2fb2-4161-bbb3-d33fa79fc486" />
