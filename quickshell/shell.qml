@@ -26,31 +26,6 @@ ShellRoot {
         }
     }
 
-    // qs ipc call theme set bubblegum | light | dark | toggleMode | list
-    IpcHandler {
-        target: "theme"
-
-        function set(id: string): void {
-            Theme.setTheme(id)
-        }
-
-        function light(): void {
-            Theme.setDark(false)
-        }
-
-        function dark(): void {
-            Theme.setDark(true)
-        }
-
-        function toggleMode(): void {
-            Theme.setDark(!Theme.dark)
-        }
-
-        function list(): string {
-            return Theme.themes.map(t => (t.id === Theme.current ? "* " : "  ") + t.id + "  (" + t.name + ")").join("\n")
-        }
-    }
-
     IpcHandler {
         target: "notifications"
 

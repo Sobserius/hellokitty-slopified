@@ -13,8 +13,6 @@ BarPopup {
 
     property string query: ""
 
-    signal themesRequested()
-
     readonly property var apps: [...DesktopEntries.applications.values]
         .filter(a => !a.noDisplay)
         .sort((a, b) => a.name.localeCompare(b.name))
@@ -143,13 +141,6 @@ BarPopup {
                     text: "Run: " + menu.query
                     onClicked: menu.launch(null)
                 }
-            }
-
-            BarButton {
-                Layout.fillWidth: true
-                implicitHeight: 26
-                text: "Themes..."
-                onClicked: menu.themesRequested()
             }
 
             Separator {

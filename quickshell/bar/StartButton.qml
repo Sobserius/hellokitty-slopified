@@ -12,14 +12,9 @@ BarButton {
     required property ShellScreen screen
 
     implicitWidth: 78
-    active: menu.shown || themes.shown
-    tooltip: "Right click: themes"
-    onClicked: mouse => {
-        if (mouse.button === Qt.RightButton)
-            themes.toggle()
-        else
-            menu.toggle()
-    }
+    active: menu.shown
+    tooltip: "Start Menu"
+    onClicked: menu.toggle()
 
     RowLayout {
         anchors.centerIn: parent
@@ -49,12 +44,6 @@ BarButton {
 
     StartMenu {
         id: menu
-        anchorItem: root
-        onThemesRequested: Popups.open(themes)
-    }
-
-    ThemeMenu {
-        id: themes
         anchorItem: root
     }
 }
