@@ -37,7 +37,6 @@ hyprpm enable hyprbars
 
 #### To install:
 
-'''
 ## Dots installation
 
 ```bash
