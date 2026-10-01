@@ -35,6 +35,19 @@ hyprpm add https://github.com/hyprwm/hyprland-plugins
 hyprpm enable hyprbars
 ```
 
+#### To install:
+
+'''
+## Dots installation
+
+```bash
+git clone https://github.com/Sobserius/hellokitty-slopified
+cd hellokitty-slopified
+cp -rf hypr quickshell ~/.config/
+cd ~
+sudo rm -rf ~/hellokitty-slopified
+```
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a66d2584-2fb2-4161-bbb3-d33fa79fc486" />
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a1ee4ebf-9525-41e7-85e6-c7d272eca9fd" />
