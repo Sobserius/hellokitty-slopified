@@ -392,8 +392,11 @@ local plugins = {
 if have_imgborders then
     plugins.imgborders = {
         image = "~/.config/hypr/assets/border_hellokitty.png",
-        sizes = {top = 80, right = 80, bottom = 80, left = 80},
-        insets = {top = 59, right = 61, bottom = 61, left = 61},
+        -- What the window gives up is (size - inset) per edge, so keep the two
+        -- close together. 80/80 leaves 0px covered; the old 80/59 ate 21px off
+        -- the top of every window and 19px down each side.
+        sizes  = {top = 80, right = 80, bottom = 80, left = 80},
+        insets = {top = 80, right = 80, bottom = 80, left = 80},
         scale = 1.0,
         smooth = false,
         blur = false,
