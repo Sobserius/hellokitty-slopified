@@ -45,11 +45,6 @@ BarButton {
         anchors.rightMargin: 6
         spacing: 6
 
-        IconImage {
-            implicitSize: 14
-            source: Quickshell.iconPath(root.entry?.icon ?? root.appId, "application-x-executable")
-        }
-
         BarText {
             Layout.fillWidth: true
             text: root.title
