@@ -8,7 +8,6 @@ install.sh checks the packages, installs whatever is missing, and copies `hypr/`
 and `quickshell/` into `~/.config/`. anything already there gets moved aside as
 `*.slop-backup`.
 
-this does not touch a sway setup, both can sit in the display manager.
 
 ```console
 SUPER + RETURN      terminal

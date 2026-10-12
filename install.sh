@@ -48,6 +48,10 @@ ok "$CONFIG/hypr/hyprland.lua + assets"
 cp -rf "$HERE/quickshell" "$CONFIG/quickshell"
 ok "$CONFIG/quickshell/ (bar, popups, notifications)"
 
+mkdir -p "$CONFIG/fastfetch"
+cp -f "$HERE/fastfetch/config.jsonc" "$CONFIG/fastfetch/config.jsonc"
+ok "$CONFIG/fastfetch/config.jsonc"
+
 if [ -f "$HOME/Documents/imgborders/build/libimgborders.so" ]; then
     ok "imgborders plugin found, it will load"
 else
@@ -59,7 +63,6 @@ step "done"
 cat <<'EOF'
   log out, pick Hyprland at your display manager, log back in.
 
-  this rice does NOT touch your sway setup, both can sit side by side.
 
     SUPER + RETURN      terminal (kitty)
     SUPER + E           file manager (thunar)
