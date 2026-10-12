@@ -223,10 +223,10 @@ hl.config({
 
 hl.config({
     input = {
-        kb_layout  = "us",
+        kb_layout  = "us,ru",
         kb_variant = "",
         kb_model   = "",
-        kb_options = "grp:win_space_toggle",
+        kb_options = "grp:alt_shift_toggle",
         kb_rules   = "",
         
 				repeat_rate = 25,
@@ -393,7 +393,7 @@ if have_imgborders then
     plugins.imgborders = {
         image = "~/.config/hypr/assets/border_hellokitty.png",
         sizes = {top = 80, right = 80, bottom = 80, left = 80},
-        insets = {top = 59, right = 61, bottom = 61, left = 61},
+        insets = {top = 60, right = 60, bottom = 50, left = 60},
         scale = 1.0,
         smooth = false,
         blur = false,
