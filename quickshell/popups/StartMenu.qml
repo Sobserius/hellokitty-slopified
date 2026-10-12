@@ -123,7 +123,6 @@ BarPopup {
                         required property int index
 
                         width: ListView.view.width
-                        icon: Quickshell.iconPath(modelData.icon, "application-x-executable")
                         text: modelData.name
                         highlighted: ListView.isCurrentItem
                         onHoveredChanged: if (hovered) list.currentIndex = index
