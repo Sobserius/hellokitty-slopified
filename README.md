@@ -1,5 +1,42 @@
+# Install:
+```console
+git clone https://github.com/Sobserius/hellokitty-slopified ~/Documents/hks
+~/Documents/hks/install.sh
+```
+
+install.sh checks the packages, installs whatever is missing, and copies `hypr/`
+and `quickshell/` into `~/.config/`. anything already there gets moved aside as
+`*.slop-backup`.
+
+this does not touch a sway setup, both can sit in the display manager.
+
+```console
+SUPER + RETURN      terminal
+SUPER + E           file manager
+SUPER + D           app menu
+SUPER + Q           close window
+SUPER + SHIFT + Q   quit hyprland
+SUPER + V           float
+SUPER + F           fullscreen
+SUPER + SHIFT + S   screenshot region
+```
+
+### Or by hand:
+
+```sh
+rm -rf ~/.config/quickshell
+git clone https://github.com/Sobserius/hellokitty-slopified /tmp/hks
+cp -rf /tmp/hks/quickshell ~/.config/
+cp -rf /tmp/hks/hypr ~/.config/
+rm -rf /tmp/hks
+sudo pacman -S --needed hyprland hyprlock hypridle hyprpm quickshell swaybg xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-wlr polkit-gnome kitty thunar
+```
+
+# Optional - the window border kitty:
+
 The hello kitty image require imgborders with a patch that renders them in the center of the top edge.
 To apply the patch, make sure you've got the Hyprland headers for the Hyprland version you're running.
+without it hyprland prints one error at startup and carries on, the rice still works.
 
 ### 1. Clone imgborders
 
@@ -35,14 +72,13 @@ hyprpm add https://github.com/hyprwm/hyprland-plugins
 hyprpm enable hyprbars
 ```
 
-#### To install:
+#### To install by hand:
 
-## Dots installation
-
-```bash
+```sh
 rm -rf ~/.config/quickshell
 git clone https://github.com/Sobserius/hellokitty-slopified /tmp/hks
 cp -rf /tmp/hks/quickshell ~/.config/
+cp -rf /tmp/hks/hypr ~/.config/
 rm -rf /tmp/hks
 ```
 
