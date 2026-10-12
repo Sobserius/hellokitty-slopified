@@ -38,14 +38,30 @@ local browser     = "helium-browser"
 
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 
+-- imgborders is optional. Hyprland validates every config key at parse time, so
+-- any plugin.imgborders.* key is a hard error when the plugin is not loaded and
+-- the session refuses to start. Detect the built plugin and only set its keys
+-- when it is actually there, otherwise this rice will not boot without a C++
+-- toolchain and a patched imgborders build.
+local function file_exists(path)
+  local f = io.open(path, "r")
+  if f then f:close() return true end
+  return false
+end
+
+local imgborders_so = os.getenv("HOME") .. "/Documents/imgborders/build/libimgborders.so"
+local have_imgborders = file_exists(imgborders_so)
+
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
-hl.on("hyprland.start", function () 
+hl.on("hyprland.start", function ()
   hl.exec_cmd("quickshell")
   hl.exec_cmd("swaybg -i ~/.config/hypr/assets/hellokitty_wallpaper.png")
   hl.exec_cmd("hyprpm reload")
-  hl.exec_cmd("hyprctl plugin load $HOME/Documents/imgborders/build/libimgborders.so")
+  if have_imgborders then
+    hl.exec_cmd("hyprctl plugin load " .. imgborders_so)
+  end
   -- Portals and auth
   hl.exec_cmd("XDG_CURRENT_DESKTOP=sway /usr/lib/xdg-desktop-portal-wlr &")
   hl.exec_cmd("XDG_CURRENT_DESKTOP=sway /usr/lib/xdg-desktop-portal -r &")
@@ -361,26 +377,31 @@ hl.window_rule({
     no_focus = true,
 })
 
-hl.config({
-    plugin = {
-        hyprbars = {
-            bar_height = 40,
-            bar_color = "rgb(d27b99)",
-            bar_text_font = "Comic Mono",
-            bar_text_size = 14,
-            bar_padding = 0,
-            bar_button_padding = 0,
-            ['col.text'] = "rgb(ffffff)",
-        },
-        imgborders = {
-            image = "~/.config/hypr/assets/border_hellokitty.png",
-            sizes = {top = 80, right = 80, bottom = 80, left = 80},
-            insets = {top = 59, right = 61, bottom = 61, left = 61},
-            scale = 1.0,
-            smooth = false,
-            blur = false,
-        },
+local plugins = {
+    hyprbars = {
+        bar_height = 40,
+        bar_color = "rgb(d27b99)",
+        bar_text_font = "Comic Mono",
+        bar_text_size = 14,
+        bar_padding = 0,
+        bar_button_padding = 0,
+        ['col.text'] = "rgb(ffffff)",
     },
+}
+
+if have_imgborders then
+    plugins.imgborders = {
+        image = "~/.config/hypr/assets/border_hellokitty.png",
+        sizes = {top = 80, right = 80, bottom = 80, left = 80},
+        insets = {top = 59, right = 61, bottom = 61, left = 61},
+        scale = 1.0,
+        smooth = false,
+        blur = false,
+    }
+end
+
+hl.config({
+    plugin = plugins,
 })
 
 -- Minion border breaks if it's sized too small.
